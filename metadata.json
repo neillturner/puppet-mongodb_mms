@@ -1,0 +1,19 @@
+{
+  "name": "neillturner-mongodb_mms",
+  "version": "0.0.1",
+  "author": "neillturner",
+  "license": "Apache-2.0",
+  "summary": "MongoDB MMS on premise server and agent installs",
+  "source": "https://github.com/neillturner/puppet-mongodb_mms.git",
+  "project_page": "https://github.com/neillturner/puppet-mongodb_mms",
+  "issues_url": "https://github.com/neillturner/puppet-mongodb_mms/issues",
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "5.0", "6.0" ]
+    }
+   ],
+  "dependencies": [
+    { "name": "puppetlabs/mongodb" }
+  ]
+}
