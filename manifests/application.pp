@@ -7,8 +7,6 @@ class mongodb_mms::application (
   $version               = '1.5.3.182-1',
   $https_proxy           = '', 
   $mms_host              = '127.0.0.1',
-  $mms_port              = 8080,
-  $mms_backup_port       = 8081,   
   $from_email_addr       = 'mms-admin@example.net',
   $reply_to_email_addr   = 'mms-admin@example.net',
   $admin_from_email_addr = 'mms-admin@example.net',
