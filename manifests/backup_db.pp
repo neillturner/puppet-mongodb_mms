@@ -29,18 +29,8 @@ class mongodb_mms::backup_db(
     require => Class['::mongodb::globals']
   }->
   
-#  file { $dbpath:
-#    ensure  => directory,
-#    owner   => $user,
-#    group   => $user,
-#    require => Class['::mongodb::server']
-#  }
-  
-  # restart the mongod service dso authorization is now on 
-  exec { 'service mongod restart':
-    command => 'service mongod restart',
-    timeout => 0,
-    require =>  Class['::mongodb::server'],
+ class {'::mongodb::client':
+    require => Class['::mongodb::server']
   }
 }
 
