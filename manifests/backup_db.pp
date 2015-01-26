@@ -6,7 +6,7 @@
 class mongodb_mms::backup_db(
   $logpath           = '/data/backupdb/mongodb.log',
   $dbpath            = '/data/backupdb',
-  $port              = 27018,
+  $port              = 27017,
   $version           = '2.6.4-1')
 {
 
