@@ -3,7 +3,8 @@ puppet-mongodb_mms
 
 Install and Manage MongoDB MMS On Premise
 
-See: 
+See:
+
       http://mms.mongodb.com/help-hosted/v1.5/tutorial/install-on-prem-quick-start/
       http://mms.mongodb.com/help-hosted/v1.5/tutorial/nav/install-on-prem/
 
