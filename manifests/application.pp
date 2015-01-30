@@ -5,7 +5,7 @@
 #
 class mongodb_mms::application (
   $version               = '1.5.3.182-1',
-  $https_proxy           = '', 
+  $https_proxy           = '',
   $mms_host              = '127.0.0.1',
   $from_email_addr       = 'mms-admin@example.net',
   $reply_to_email_addr   = 'mms-admin@example.net',
@@ -13,7 +13,7 @@ class mongodb_mms::application (
   $admin_email_addr      = 'mms-admin@example.net',
   $bounce_email_addr     = 'mms-admin@example.net',
   $mail_hostname         = '127.0.0.1',
-  $mail_port             = 25,  
+  $mail_port             = 25,
   $aws_accesskey         = undef,
   $aws_secretkey         = undef,
   $email_dao_class       = 'com.xgen.svc.core.dao.email.JavaEmailDao',
@@ -26,15 +26,15 @@ class mongodb_mms::application (
 
   # needed to do a sudo in redhat
   file_line { '/etc/sudoers':
-    ensure  => present,
-    path    => '/etc/sudoers',
-    line    => 'Defaults:root !requiretty'
+    ensure => present,
+    path   => '/etc/sudoers',
+    line   => 'Defaults:root !requiretty'
   }
 
   exec { 'download-mms-onprem':
     command     => "curl -OL https://downloads.mongodb.com/on-prem-mms/rpm/mongodb-mms-${version}.x86_64.rpm",
     cwd         => '/tmp',
-    environment => ["https_proxy=$https_proxy"],
+    environment => ["https_proxy=${https_proxy}"],
     creates     => "/tmp/mongodb-mms-${version}.x86_64.rpm",
     require     => File_line['/etc/sudoers']
   }
@@ -53,7 +53,7 @@ class mongodb_mms::application (
     mode    => '0755',
     content => template('mongodb_mms/conf-mms.properties.erb'),
     require => Exec["rpm --install /tmp/mongodb-mms-${version}.x86_64.rpm"]
-  } 
+  }
   
   service { 'mongodb-mms':
     ensure    => running,
@@ -61,5 +61,5 @@ class mongodb_mms::application (
     hasstatus => true,
     restart   => true,
     require   => File['/opt/mongodb/mms/conf/conf-mms.properties']
-  }   
+  }
 }
