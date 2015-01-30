@@ -56,13 +56,6 @@ monitoring and backup agents:
       require => Class['mongodb_mms::backup']
     } 
 
-    class { 'mongodb_mms::backup_db':
-      logpath      => $logpath,
-      dbpath       => $dbpath,
-      version      => $db_version,  
-      require      => Class['eg_mongodb_mms_backupdb::ebs_init']   
-    }
-    
     class { 'mongodb_mms::backup_agent':
       mmsApiKey => 'mmsApiKey',
       require   => Class['mongodb_mms::backup_db']   
