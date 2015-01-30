@@ -58,7 +58,7 @@ monitoring and backup agents:
 
     class { 'mongodb_mms::backup_agent':
       mmsApiKey => 'mmsApiKey',
-      require   => Class['mongodb_mms::backup_db']   
+      require   => Class['mongodb_mms::mms_agent']   
     } 
  
 
